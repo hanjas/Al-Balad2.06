@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER"  
+      prefHeight="400" prefWidth="600" spacing="20" 
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+    <children>
+        <GridPane alignment="CENTER" vgap="5" hgap="5"    >
+                    <Label text="Username " GridPane.columnIndex="0" GridPane.rowIndex="0"   /> 
+                    <Label text="Password " GridPane.columnIndex="0" GridPane.rowIndex="1"   /> 
+                    <TextField fx:id="usrName"  promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="0"  />
+                    <TextField fx:id="pwd"  promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="1"  />
+                    <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="3"  >
+                        <right>
+                            <Button text="Login" onAction="#check"  /> 
+                        </right>
+                    </BorderPane>
+                </GridPane>
+    </children>
+    <padding>
+        <javafx.geometry.Insets bottom="50" left="50" right="50" top="50" ></javafx.geometry.Insets> 
+    </padding>
+</VBox>

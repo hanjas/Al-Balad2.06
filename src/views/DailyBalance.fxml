@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DailyBalanceController">
+    <padding>
+        <Insets bottom="5" left="20" right="20" top="20" />   
+    </padding>
+    <top>
+        <BorderPane fx:id="printBorder">
+            <padding>
+                <Insets left="20" />
+            </padding>
+            <left>
+                <Label fx:id="nameLabel" prefWidth="200" style="-fx-font-size:20;" text="BalanceSheet" />
+            </left>
+            <center>
+                <GridPane alignment="CENTER" hgap="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+               <children>
+                  <DatePicker fx:id="datePicker" />
+                  <Button fx:id="showBtn" mnemonicParsing="false" onAction="#setTable" text="Show" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+               </children>   
+                </GridPane>
+            </center>
+            <right>
+                <GridPane hgap="10">
+                   <children>
+                       <ImageView fx:id="processImageView" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <image>
+                               <Image url="/icons/process.gif" />
+                           </image>
+                       </ImageView>
+                       <Button fx:id="refresh" onAction="#setTable" text="refresh" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                       <Button fx:id="printB" onAction="#print" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                           <graphic>
+                               <ImageView>
+                                   <image>
+                                       <Image url="/icons/printer.png" />
+                                   </image>
+                               </ImageView>
+                           </graphic>
+                       </Button>
+                   </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+            </right>
+        </BorderPane> 
+    </top>
+    <center>
+        <HBox alignment="CENTER">
+           <children>
+               <!--<ScrollPane >-->
+                   <TableView fx:id="tableView" prefHeight="709" prefWidth="1550">
+                       <columns>
+                           
+                           <TableColumn fx:id="col1" prefWidth="142" text="Name">
+                               <cellValueFactory>
+                        <PropertyValueFactory property="Name" />
+                               </cellValueFactory>
+                           </TableColumn> 
+   
+                           <TableColumn fx:id="col8" prefWidth="142" text="Date">
+                               <cellValueFactory>
+                        <PropertyValueFactory property="Date" />
+                               </cellValueFactory>
+                           </TableColumn> 
+                           
+                           <TableColumn fx:id="col2" prefWidth="142" text="Party">
+                               <cellValueFactory>
+                        <PropertyValueFactory property="Party" />
+                               </cellValueFactory>
+                           </TableColumn> 
+   
+                           <TableColumn fx:id="col3" prefWidth="142" text="Fish">
+                               <cellValueFactory>
+                        <PropertyValueFactory property="Fish" />
+                               </cellValueFactory>
+                           </TableColumn> 
+   
+                           <TableColumn fx:id="col4" prefWidth="142" text="Qty">
+                               <cellValueFactory>
+                        <PropertyValueFactory property="Qty" />
+                               </cellValueFactory>
+                           </TableColumn> 
+   
+                           <TableColumn fx:id="col5" prefWidth="142" text="Rate">
+                               <cellValueFactory>
+                        <PropertyValueFactory property="Rate" />
+                               </cellValueFactory>
+                           </TableColumn> 
+   
+                           <TableColumn fx:id="col6" prefWidth="142" text="Sub-Total">
+                               <cellValueFactory>
+                        <PropertyValueFactory property="Subt" />
+                               </cellValueFactory>
+                           </TableColumn> 
+   
+                           <TableColumn fx:id="col7" prefWidth="142" text="Total">
+                               <cellValueFactory>
+                        <PropertyValueFactory property="Total" />
+                               </cellValueFactory>
+                           </TableColumn> 
+   
+                           <TableColumn fx:id="col9" prefWidth="142" text="Old-Bal">
+                               <cellValueFactory>
+                        <PropertyValueFactory property="Old" />
+                               </cellValueFactory>
+                           </TableColumn>  
+   
+                           <TableColumn fx:id="col10" prefWidth="142" text="Balance">
+                               <cellValueFactory>
+                        <PropertyValueFactory property="Balance" />
+                               </cellValueFactory>
+                           </TableColumn>
+   
+                       </columns>
+                   </TableView>
+           </children>
+            <!--</ScrollPane>-->
+        </HBox>
+    </center>
+   <bottom>
+       <BorderPane>
+           <padding><Insets left="20" right="40" top="5" /></padding>
+           <right>
+               <Label fx:id="totalLabel" style="-fx-font-size:30;" /> 
+           </right>
+       </BorderPane>
+   </bottom>
+</BorderPane>

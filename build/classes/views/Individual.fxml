@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.*?>
+
+<BorderPane fx:id="borderPane"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IndividualController">
+    <padding>
+        <Insets top="20" bottom="20" left="20" right="20" ></Insets>   
+    </padding>
+    <left>
+        <GridPane vgap="20" alignment="BOTTOM_CENTER"  >
+<!--            <padding>
+                <Insets top="40" /> 
+            </padding>-->
+            <Label text="Members"  alignment="CENTER" style="-fx-background-color:#a7a7a7; -fx-font-size:16;" prefHeight="40"   prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="0" /> 
+            <ListView fx:id="listView" onMouseClicked="#getDetails" onKeyPressed="#setDetailsKey" prefWidth="200" prefHeight="740" GridPane.columnIndex="0" GridPane.rowIndex="1"  />
+            <GridPane vgap="2"  GridPane.columnIndex="0" GridPane.rowIndex="2" >
+                <Button fx:id="addB" onAction="#addMembers"  text="Add" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="0"  />
+                <Button fx:id="removeB" onAction="#removeBtn"  text="Remove" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="1"  />
+            </GridPane>
+        </GridPane>
+    </left>
+    <center>
+        <BorderPane fx:id="printBorder" >
+            <padding>
+                <Insets  left="10"   />
+            </padding>
+            <top>
+                <BorderPane fx:id="title"  >
+                    <padding>
+                        <Insets left="30"   />
+                    </padding>
+                    <left>
+                        <Label fx:id="nameLabel" style="-fx-font-size:20;" prefWidth="250"  /> 
+                    </left>
+                    <center>
+                        <GridPane  hgap="5" alignment="CENTER"  >
+                            <padding>
+                                <Insets bottom="10"    />
+                            </padding>
+                            <Button fx:id="prevDate" onAction="#prevMonth"  GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <Label fx:id="dateLabel"  GridPane.columnIndex="1" GridPane.rowIndex="0" />   
+                            <Button fx:id="nextDate" onAction="#nextMonth"  text=">" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        </GridPane>
+                    </center>
+                    <right >
+                        <GridPane hgap="5" alignment="CENTER_RIGHT"   >
+                            <padding>
+                                <Insets bottom="10"    />
+                            </padding>
+                            <Button fx:id="printB" onAction="#print"  GridPane.columnIndex="0" GridPane.rowIndex="0" >
+                                <graphic >
+                                    <ImageView  >
+                                        <image >
+                                            <Image url="/icons/printer.png"/>
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="addReportB" text="Add Report" onAction="#newWindow"  GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                            <Button fx:id="removeReportB" text="Remove" onAction="#removeWindow"  GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        </GridPane>
+                    </right>
+                </BorderPane>
+            </top>
+            <center>
+                <HBox alignment="CENTER"  >
+                    <!--<ScrollPane >-->
+                        <TableView fx:id="tableView"   >
+                            <columns >
+                                <TableColumn fx:id="col1" text="Date"  prefWidth="123" >
+                                    <cellValueFactory><PropertyValueFactory property="Date" />
+                                    </cellValueFactory>
+                                </TableColumn> 
+
+                                <TableColumn fx:id="col2" text="Party"  prefWidth="123" >
+                                    <cellValueFactory><PropertyValueFactory property="Party" />
+                                    </cellValueFactory>
+                                </TableColumn> 
+
+                                <TableColumn fx:id="col3" text="Fish"   prefWidth="123" >
+                                    <cellValueFactory><PropertyValueFactory property="Fish" />
+                                    </cellValueFactory>
+                                </TableColumn> 
+
+                                <TableColumn fx:id="col4" text="Qty"  prefWidth="123"  >
+                                    <cellValueFactory><PropertyValueFactory property="Qty" />
+                                    </cellValueFactory>
+                                </TableColumn> 
+
+                                <TableColumn fx:id="col5" text="Rate"  prefWidth="123"  >
+                                    <cellValueFactory><PropertyValueFactory property="Rate" />
+                                    </cellValueFactory>
+                                </TableColumn> 
+
+                                <TableColumn fx:id="col6" text="Sub-Total"  prefWidth="123"  >
+                                    <cellValueFactory><PropertyValueFactory property="Subt" />
+                                    </cellValueFactory>
+                                </TableColumn> 
+
+                                <TableColumn fx:id="col7" text="Total"  prefWidth="123" >
+                                    <cellValueFactory><PropertyValueFactory property="Total" />
+                                    </cellValueFactory>
+                                </TableColumn> 
+
+                                <TableColumn fx:id="col8" text="Old-Bal"  prefWidth="123"  >
+                                    <cellValueFactory><PropertyValueFactory property="Old" />
+                                    </cellValueFactory>
+                                </TableColumn> 
+
+                                <TableColumn fx:id="col9" text="G-Total"  prefWidth="123" >
+                                    <cellValueFactory><PropertyValueFactory property="Grand" />
+                                    </cellValueFactory>
+                                </TableColumn> 
+
+                                <TableColumn fx:id="col10" text="Debit"  prefWidth="123" >
+                                    <cellValueFactory><PropertyValueFactory property="Debit" />
+                                    </cellValueFactory>
+                                </TableColumn> 
+
+                                <TableColumn fx:id="col11" text="Balance"  prefWidth="123" >
+                                    <cellValueFactory><PropertyValueFactory property="Balance" />
+                                    </cellValueFactory>
+                                </TableColumn> 
+                            </columns>
+                        </TableView>
+                    <!--</ScrollPane>-->
+                </HBox>
+            </center>
+        </BorderPane> 
+    </center>
+</BorderPane>
